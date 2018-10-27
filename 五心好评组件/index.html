@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+</head>
+
+<body>
+    <div class="evalute-form-star flex_row" id="startone">
+        <div class="plugin_star"></div>
+        <div class="plugin_score tcustom-icon ba-border-yellow">score 4 generally</div>
+        <input type="hidden" name="ratings[4]" value="" class="plugin_input_val" />
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+        $(function() {
+            $("#startone").pluginTcustomStar({
+                background: "#fff"
+            });
+        })
+    </script>
+</body>
+
+</html>
