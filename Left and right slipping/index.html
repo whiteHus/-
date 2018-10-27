@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+    <style type="text/css">
+        li,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+        
+        img {
+            display: inline-block;
+            -ms-interpolation-mode: bicubic;
+        }
+        
+        img,
+        object,
+        embed {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .main {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .detail-category {
+            padding: 20px 70px;
+        }
+        
+        .detail-category-pro {
+            justify-content: center;
+            border-bottom: 1px solid #d7d7d7;
+            height: 43px;
+        }
+        
+        .flex_row {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .detail-category-item {
+            margin: 0 10px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .detail-icon-btn {
+            /* border: 1px solid red; */
+            display: inline-block;
+            height: 30px;
+            padding: 0 10px;
+            line-height: 30px;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .detail-icon-btn i {
+            /* border: 1px solid blue; */
+            position: absolute;
+            left: 10px;
+            top: 5px;
+        }
+        
+        .detail-category-item:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0px;
+            border-top: 2px solid #00a3a3;
+            position: absolute;
+            left: 0;
+            bottom: -14px;
+            transition: 0.3s;
+        }
+        
+        .detail-category-item.select:hover:after,
+        .detail-category-item.select:after {
+            width: 100%;
+        }
+        
+        .detail-category-item:hover:after {
+            width: 100%;
+        }
+        
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="detail-amazing-prodect">
+            <div class="title_h3">Get this design on other amazing products</div>
+            <div class="detail-category ">
+                <div class="detail-category-pro flex_row">
+                    <div class="detail-category-item detail-icon-btn select">
+                        <i class="tcustom-icon icon-man"></i> Men
+                    </div>
+                    <div class="detail-category-item detail-icon-btn">
+                        <i class="tcustom-icon icon-woman"></i> Women
+                    </div>
+                    <div class="detail-category-item detail-icon-btn">
+                        <i class="tcustom-icon icon-kids"></i> Kids & Babies
+                    </div>
+                    <div class="detail-category-item detail-icon-btn">
+                        <i class="tcustom-icon icon-accessories"></i> Accessories
+                    </div>
+                    <div class="detail-category-item detail-icon-btn">
+                        <i class="tcustom-icon icon-cases"></i> Cases
+                    </div>
+                </div>
+
+            </div>
+            <ul class="detail-category-translate">
+                <li class="translate-plugin show">
+                    <div class="translate-list">
+                        <div class="translate-arrow translate-left">
+                            <i class="tcustom-icon icon-arrow-left"></i>
+                        </div>
+                        <div class="translate-scroll">
+                            <ul class="flex_row" data-translate="0">
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star2.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star3.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="translate-arrow translate-right">
+                            <i class="tcustom-icon icon-arrow-right"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="translate-plugin">
+                    <div class="translate-list">
+                        <div class="translate-arrow translate-left">
+                            <i class="tcustom-icon icon-arrow-left"></i>
+                        </div>
+                        <div class="translate-scroll">
+                            <ul class="flex_row" data-translate="0">
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star2.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star3.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="translate-arrow translate-right">
+                            <i class="tcustom-icon icon-arrow-right"></i>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="translate-plugin">
+                    <div class="translate-list">
+                        <div class="translate-arrow translate-left">
+                            <i class="tcustom-icon icon-arrow-left"></i>
+                        </div>
+                        <div class="translate-scroll">
+                            <ul class="flex_row" data-translate="0">
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star1.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star2.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="translate-scroll-item">
+                                    <div class="public-product">
+                                        <img src="images/star3.png" />
+                                        <div class="public-product-info">
+                                            <div class="public-product-name">Superhero Butts</div>
+                                            <div class="public-product-price">$23.30</div>
+                                            <div class="public-product-date">FREE Delivery by MON, OCT 8</div>
+                                            <div class="five-star" tip="3"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <div class="translate-arrow translate-right">
+                            <i class="tcustom-icon icon-arrow-right"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+        $(function() {
+            bindDetailCategoryPro();
+            bindTranslatePlugin();
+            fiveStarBytip();
+        });
+    </script>
+</body>
+
+</html>
