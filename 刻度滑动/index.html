@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        li,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+        
+        .qz-progress {
+            height: 22px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            position: relative;
+            box-shadow: inset 0 2px 10px 0px #ddd;
+        }
+        
+        .qz-progress_bar {
+            height: 22px;
+            width: 0;
+            background: #03a9f4;
+            border-radius: 3px;
+        }
+        
+        .qz-progress_button {
+            height: 30px;
+            width: 20px;
+            border: 1px solid #666;
+            background: #ddd;
+            position: absolute;
+            border-radius: 2px;
+            top: -5px;
+            opacity: 0.5;
+            left: -10px;
+        }
+        
+        #qz-scale {
+            height: 50px;
+            width: 100%;
+            position: relative;
+        }
+        
+        #qz-scale li {
+            /* float:left; */
+            top: 10px;
+            width: 0px;
+            border-left: 1px solid #666;
+            height: 8px;
+            position: absolute;
+        }
+        
+        #qz-scale li.big_scale {
+            height: 16px;
+        }
+        
+        .scale_val {
+            position: absolute;
+            top: 18px;
+            width: 30px;
+            text-align: center;
+            left: -15px;
+            font-size: 12px;
+        }
+        
+        .c-productLaunch-royalty-slide {
+            width: 350px;
+            margin: 50px auto
+        }
+    </style>
+
+    <div class="c-productLaunch-royalty-slide">
+        <input type="text" class="changepricerate-class" onkeyup="make_progress(this)" min="0" max="100" value="0" style="width:65px;margin-left:40px;">
+        <div style="height:auto;padding:15px 0">
+            <div class="qz-progress">
+                <div class="qz-progress_bar"></div>
+                <div class="qz-progress_button"></div>
+            </div>
+            <div id="qz-scale">
+            </div>
+            <!-- <input id="ex4" type="text" data-slider-ticks="[0, 100, 200, 300, 400,500,600,700]" data-slider-ticks-snap-bounds="30"  data-slider-ticks-labels='["1", "2", "3", "4", "5","6","7","8","9"]'/>  
+            <input  id="ex1" data-slider-id="ex1Slider" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="15"/>   -->
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        $(function() {
+            var button = $(".qz-progress_button");
+
+            var doc = $(document);
+            var move = false;
+            var beginx; //其实x坐标
+            button.on("mousedown", function(e) {
+                beginx = e.pageX;
+                move = true;
+            });
+
+            doc.on("mousemove", function(e) {
+                e.preventDefault();
+                if (move) { //可以移动
+                    var progress_bar = $(".qz-progress_bar");
+                    var button_width = button.width() + 2; //
+                    var left = $(".qz-progress").offset().left; //进度距离左边的距离
+                    var width = $(".qz-progress").width() + 2; //容器的宽度
+                    var button_left = button.offset().left - 1; //滑动按钮距离左边的距离
+                    var pageX = e.pageX //滑动的终点
+                    var movex = pageX - beginx; //滑动的距离
+                    beginx = e.pageX;
+                    var button_move = button_left + movex - left; //
+                    button_move = Math.min(width - 10, Math.max(button_move, -10));
+                    button.css({
+                        "left": button_move + "px"
+                    });
+                    progress_bar.css({
+                        "width": (button_move + 10) + "px"
+                    });
+                    computer_progress(width - 2, button_move + 10);
+                }
+            });
+            doc.on("mouseup", function(e) {
+                move = false;
+            });
+            initscale();
+        });
+
+        function initscale() {
+            var width = $(".qz-progress").width(); //容器的宽度
+            var qz_scale = $("#qz-scale");
+            var html = "<ul>";
+            var one = Number(width / 5).toFixed(0);
+            var small_one5 = Number(width / 25).toFixed(0);
+            var small_one10 = Number(width / 50).toFixed(0);
+            var count_letf = 0;
+            for (let i = 0; i < 4; i++) {
+                var pers = (i + 1) * 10;
+                count_letf = (i + 1) * one;
+                var html_scale = "";
+                html_scale = '<div class="scale_val">' + pers + '%</div>'
+                if (i == 0) {
+                    html += '<li style="left:' + count_letf + 'px" class="big_scale">' + html_scale + '</li>'
+                    for (let j = 0; j < 4; j++) {
+                        count_letf += parseInt(small_one5);
+                        html += '<li style="left:' + count_letf + 'px"></li>'
+                    }
+                } else if (i == 3) {
+                    html += '<li style="left:' + count_letf + 'px" class="big_scale">' + html_scale + '</li>'
+                    for (let j = 0; j < 9; j++) {
+                        count_letf += parseInt(small_one10);
+                        html += '<li style="left:' + count_letf + 'px"></li>'
+                    }
+                    count_letf += parseInt(small_one10);
+                    html += '<li style="left:' + count_letf + 'px" class="big_scale"><div class="scale_val">100%</div></li>'
+                } else {
+                    html += '<li style="left:' + count_letf + 'px" class="big_scale">' + html_scale + '</li>'
+                    for (let j = 0; j < 4; j++) {
+                        count_letf += parseInt(small_one5);
+                        html += '<li style="left:' + count_letf + 'px"></li>'
+                    }
+                }
+            }
+            html += "</ul>";
+            qz_scale.html("").append(html);
+        }
+
+        function calculatorModalShow() {
+            $("#calculatorModal").modal("show");
+            //initscale();//初始化刻度
+            setTimeout("initscale()", 1000);
+        }
+
+        //one进度条宽度
+        function computer_progress(all, one) {
+            var width = $(".qz-progress").width(); //容器的宽度
+            var one_widht = Number(width / 5).toFixed(0);
+            var pe80 = width - one_widht;
+            if (one <= pe80) { //0-40%
+                var pser = Number(one / pe80 * 100 * 0.4).toFixed(0);
+                pser = Math.min(100, Math.max(0, pser));
+                $(".changepricerate-class").val(pser);
+            } else { //40%-100%;
+                var num = one - pe80;
+                var pser = Number(num / one_widht * 100 * 0.6 + 40).toFixed(0);
+                pser = Math.min(100, Math.max(0, pser));
+                $(".changepricerate-class").val(pser);
+            }
+        };
+
+        function make_progress(obj) {
+            var num = parseInt($(obj).val());
+            var width = $(".qz-progress").width(); //容器的宽度
+            var one_widht = Number(width / 5).toFixed(0);
+            var pe80 = width - one_widht;
+            var progress_bar = $(".qz-progress_bar");
+            var button = $(".qz-progress_button");
+            if (num <= 40) { //0-40%
+                var p_width = Number(pe80 * num / 40).toFixed(0);
+                p_width = Math.max(0, Math.min(width, p_width));
+                progress_bar.css({
+                    "width": p_width + "px"
+                });
+                button.css({
+                    "left": (p_width - 10) + "px"
+                });
+            } else { //40%-100%;
+                num = num - 40;
+                var p_width = Number(one_widht * num / 60 + pe80).toFixed(0);
+                p_width = Math.max(0, Math.min(width, p_width));
+                progress_bar.css({
+                    "width": p_width + "px"
+                });
+                button.css({
+                    "left": (p_width - 10) + "px"
+                });
+            }
+        };
+    </script>
+</body>
+
+</html>
